@@ -17,6 +17,7 @@ set(
         SOURCES
         ${HCTP_SOURCE_DIR}/control.c
         ${HCTP_SOURCE_DIR}/speed.c
+        ${HCTP_SOURCE_DIR}/messageModel.c
 )
 
 include_directories(${HCTP_INCLUDE_DIR})

@@ -1,6 +1,7 @@
 #ifndef HCTP_MESSAGEMODEL_H
 #define HCTP_MESSAGEMODEL_H
 
+#include "stdlib.h"
 #include "stdint.h"
 
 #define CONTROL_BYTE 0
@@ -17,5 +18,7 @@
 #define RIGHT_TURN_BIT (1 << 1)
 
 typedef uint8_t *hctp_message_t;
+
+void hctp_message_init(hctp_message_t message);
 
 #endif
