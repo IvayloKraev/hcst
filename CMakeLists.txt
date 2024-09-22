@@ -1,8 +1,11 @@
 cmake_minimum_required(VERSION 3.29)
-project(Curiosity_protocol LANGUAGES C)
+project(hctp LANGUAGES C)
 
+# Specify the C standard
 set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 
+# Define the source and header files
 set(
         HEADERS
         inc/messageModel.h
@@ -16,9 +19,19 @@ set(
         src/speed.c
 )
 
-include_directories(inc)
-include_directories(src)
+add_library(hctp STATIC ${SOURCES})
 
-add_library(Curiosity_protocol STATIC ${HEADERS} ${SOURCES})
+target_sources(hctp PUBLIC ${HEADERS})
 
-target_include_directories(Curiosity_protocol PUBLIC inc)
+add_library(hctp::headers INTERFACE)
+
+target_include_directories(hctp::headers INTERFACE
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc>
+        $<INSTALL_INTERFACE:include/hctp>
+)
+
+target_link_libraries(hctp PUBLIC hctp::headers)
+
+set_target_properties(hctp PROPERTIES
+        PUBLIC_HEADER "${HEADERS}"
+)
