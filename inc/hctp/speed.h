@@ -1,10 +1,10 @@
-#ifndef SPEED_H
-#define SPEED_H
+#ifndef HCTP_SPEED_H
+#define HCTP_SPEED_H
 
-#include "messageModel.h"
+#include "hctp/messageModel.h"
 
-void setSpeed(message_t, uint8_t);
+void hctp_speed_set(hctp_message_t, uint8_t);
 
-uint8_t getSpeed(message_t);
+uint8_t hctp_speed_get(hctp_message_t);
 
 #endif

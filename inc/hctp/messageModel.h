@@ -1,5 +1,5 @@
-#ifndef MESSAGEMODEL_H
-#define MESSAGEMODEL_H
+#ifndef HCTP_MESSAGEMODEL_H
+#define HCTP_MESSAGEMODEL_H
 
 #include "stdint.h"
 
@@ -16,6 +16,6 @@
 #define LEFT_TURN_BIT (1 << 2)
 #define RIGHT_TURN_BIT (1 << 1)
 
-typedef uint8_t *message_t;
+typedef uint8_t *hctp_message_t;
 
 #endif

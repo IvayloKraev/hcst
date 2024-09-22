@@ -1,21 +1,21 @@
-#ifndef CONTROL_H
-#define CONTROL_H
+#ifndef HCTP_CONTROL_H
+#define HCTP_CONTROL_H
 
 #include "stdbool.h"
-#include "messageModel.h"
+#include "hctp/messageModel.h"
 
-void setControl_StateMotors(message_t, bool);
+void hctp_control_set_stateMotors(hctp_message_t, bool);
 
-void setControl_LeftTurn(message_t, bool);
+void hctp_control_set_leftTurn(hctp_message_t, bool);
 
-void setControl_RightTurn(message_t, bool);
+void hctp_control_set_rightTurn(hctp_message_t, bool);
 
-void setControl_Clear(message_t);
+void hctp_control_set_clear(hctp_message_t);
 
-bool getControl_StateMotors(message_t);
+bool hctp_control_get_stateMotors(hctp_message_t);
 
-bool getControl_LeftTurn(message_t);
+bool hctp_control_get_leftTurn(hctp_message_t);
 
-bool getControl_RightTurn(message_t);
+bool hctp_control_get_rightTurn(hctp_message_t);
 
 #endif
