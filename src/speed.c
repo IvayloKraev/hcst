@@ -1,4 +1,4 @@
-#include "speed.h"
+#include "hctp/speed.h"
 
 void setSpeed(message_t message, uint8_t speed) {
     message[SPEED_BYTE] = speed;

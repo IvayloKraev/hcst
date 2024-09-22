@@ -1,4 +1,4 @@
-#include "control.h"
+#include "hctp/control.h"
 
 void setControl_StateMotors(message_t message, bool value) {
     if (value) {
