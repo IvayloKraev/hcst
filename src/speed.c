@@ -1,7 +1,11 @@
 #include "hctp/speed.h"
 
-void hctp_speed_set(hctp_message_t message, uint8_t speed) {
+hctp_RESULT hctp_speed_set(hctp_message_t message, uint8_t speed) {
+    HCTP_NULL_CHECK(message);
+
     message[SPEED_BYTE] = speed;
+
+    return hctp_OK;
 }
 
 uint8_t hctp_speed_get(hctp_message_t message){
