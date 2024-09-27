@@ -3,6 +3,7 @@
 
 #include "stdlib.h"
 #include "stdint.h"
+#include "stdbool.h"
 
 #define HCTP_CONTROL_BYTE 0
 #define HCTP_SPEED_BYTE 1
@@ -18,6 +19,15 @@
 #define HCTP_RIGHT_TURN_BIT (1 << 1)
 
 typedef uint8_t *hctp_message_t;
+
+typedef struct {
+    bool motorState;
+    bool leftTurn;
+    bool rightTurn;
+    uint8_t speed;
+} hctp_message_readyToEncode_t;
+
+typedef hctp_message_readyToEncode_t* hctp_message_readyToEncode_handler_t;
 
 void hctp_message_init(hctp_message_t message);
 
