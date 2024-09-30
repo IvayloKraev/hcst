@@ -18,7 +18,6 @@ set(
         SOURCES
         ${HCTP_SOURCE_DIR}/control.c
         ${HCTP_SOURCE_DIR}/speed.c
-        ${HCTP_SOURCE_DIR}/messageModel.c
         ${HCTP_SOURCE_DIR}/encodeMessage.c
 
 )
