@@ -29,6 +29,6 @@ typedef struct {
 
 typedef hctp_message_readyToEncode_t* hctp_message_readyToEncode_handler_t;
 
-void hctp_message_init(hctp_message_t message);
+#define hctp_message_init(message) message=(hctp_message_t)malloc(sizeof(hctp_message_t) * HCTP_MESSAGE_SIZE_BYTES);
 
 #endif
