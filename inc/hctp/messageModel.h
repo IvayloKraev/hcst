@@ -14,9 +14,9 @@
 
 #define HCTP_IS_BIT_ACTIVE(value, bit) (((value) & (bit)) != 0)
 
-#define HCTP_MOTOR_STATE_BIT (1 << 3) // 1 - ON / 0 - OFF
-#define HCTP_LEFT_TURN_BIT (1 << 2)
-#define HCTP_RIGHT_TURN_BIT (1 << 1)
+#define HCTP_MOTOR_STATE_BIT    2   // 1 - ON / 0 - OFF
+#define HCTP_LEFT_TURN_BIT      1
+#define HCTP_RIGHT_TURN_BIT     0
 
 typedef uint8_t *hctp_message_t;
 
