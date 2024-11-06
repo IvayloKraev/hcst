@@ -12,7 +12,7 @@
 #define HCTP_SET_BIT(byte, bit) (byte) |= (1 << (bit))
 #define HCTP_CLR_BIT(byte, bit) (byte) &= ~(1 << (bit))
 
-#define HCTP_IS_BIT_ACTIVE(value, bit) (((value) & (bit)) != 0)
+#define HCTP_IS_BIT_ACTIVE(value, bit) (((value) & (1 << (bit))) != 0)
 
 #define HCTP_MOTOR_STATE_BIT    2   // 1 - ON / 0 - OFF
 #define HCTP_LEFT_TURN_BIT      1
