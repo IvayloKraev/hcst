@@ -1,9 +1,7 @@
 #ifndef HCTP_MESSAGEMODEL_H
 #define HCTP_MESSAGEMODEL_H
 
-#include "stdlib.h"
 #include "stdint.h"
-#include "stdbool.h"
 
 #define HCTP_CONTROL_BYTE 0
 #define HCTP_SPEED_BYTE 1
@@ -19,15 +17,6 @@
 
 typedef uint8_t *hctp_message_t;
 
-typedef struct {
-    bool motorState;
-    bool leftTurn;
-    bool rightTurn;
-    uint8_t speed;
-} hctp_message_readyToEncode_t;
-
-typedef hctp_message_readyToEncode_t* hctp_message_readyToEncode_handler_t;
-
-#define hctp_message_init(message) message=(hctp_message_t)malloc(sizeof(hctp_message_t) * HCTP_MESSAGE_SIZE_BYTES);
+#define HCTP_MESSAGE_INIT(message) message=(hctp_message_t)malloc(sizeof(hctp_message_t) * HCTP_MESSAGE_SIZE_BYTES);
 
 #endif
