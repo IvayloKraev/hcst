@@ -11,14 +11,12 @@ set(
         ${HCTP_INCLUDE_DIR}/hctp/messageModel.h
         ${HCTP_INCLUDE_DIR}/hctp/control.h
         ${HCTP_INCLUDE_DIR}/hctp/speed.h
-        ${HCTP_INCLUDE_DIR}/hctp/encodeMessage.h
 )
 
 set(
         SOURCES
         ${HCTP_SOURCE_DIR}/control.c
         ${HCTP_SOURCE_DIR}/speed.c
-        ${HCTP_SOURCE_DIR}/encodeMessage.c
 
 )
 
