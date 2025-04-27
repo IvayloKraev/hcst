@@ -2,12 +2,12 @@
 
 hctp_RESULT hctp_control_set_leftTurn(hctp_message_t message, bool value) {
     HCTP_NULL_CHECK(message);
+    HCTP_CHECK_MESSAGE(message);
+
+    HCTP_CLR_BIT(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
 
     if (value) {
         HCTP_SET_BIT(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
-        HCTP_CLR_BIT(message[HCTP_CONTROL_BYTE], HCTP_RIGHT_TURN_BIT);
-    } else {
-        HCTP_CLR_BIT(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
     }
 
     return hctp_OK;
@@ -15,19 +15,19 @@ hctp_RESULT hctp_control_set_leftTurn(hctp_message_t message, bool value) {
 
 hctp_RESULT hctp_control_set_rightTurn(hctp_message_t message, bool value) {
     HCTP_NULL_CHECK(message);
+    HCTP_CHECK_MESSAGE(message);
+
+    HCTP_CLR_BIT(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
 
     if (value) {
         HCTP_SET_BIT(message[HCTP_CONTROL_BYTE], HCTP_RIGHT_TURN_BIT);
-        HCTP_CLR_BIT(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
-    } else {
-        HCTP_CLR_BIT(message[HCTP_CONTROL_BYTE], HCTP_RIGHT_TURN_BIT);
     }
 
     return hctp_OK;
 }
 
 hctp_RESULT hctp_control_set_clear(hctp_message_t message) {
-    HCTP_NULL_CHECK(message);
+    HCTP_CHECK_MESSAGE(message);
 
     message[HCTP_CONTROL_BYTE] = 0;
 

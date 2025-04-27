@@ -7,8 +7,8 @@
 #define HCTP_SPEED_BYTE 1
 #define HCTP_MESSAGE_SIZE_BYTES 2
 
-#define HCTP_SET_BIT(byte, bit) (byte) |= (1 << (bit))
-#define HCTP_CLR_BIT(byte, bit) (byte) &= ~(1 << (bit))
+#define HCTP_SET_BIT(byte, bit) (byte) |= (1U << (bit))
+#define HCTP_CLR_BIT(byte, bit) (byte) &= ~(1U << (bit))
 
 #define HCTP_IS_BIT_ACTIVE(value, bit) (((value) & (1 << (bit))) != 0)
 
