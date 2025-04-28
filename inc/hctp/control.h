@@ -1,23 +1,16 @@
 #ifndef HCTP_CONTROL_H
 #define HCTP_CONTROL_H
 
-#include "stdbool.h"
-
 #include "hctp/messageModel.h"
 #include "hctp/common.h"
+#include "hctp/types.h"
 
-hctp_RESULT hctp_control_set_stateMotors(hctp_message_t, bool);
+hctp_RESULT_t hctp_control_set_leftTurn(hctp_message_t, hctp_BUTTON_STATE);
 
-hctp_RESULT hctp_control_set_leftTurn(hctp_message_t, bool);
+hctp_RESULT_t hctp_control_set_rightTurn(hctp_message_t, hctp_BUTTON_STATE);
 
-hctp_RESULT hctp_control_set_rightTurn(hctp_message_t, bool);
+hctp_BUTTON_STATE hctp_control_get_leftTurn(hctp_message_t);
 
-hctp_RESULT hctp_control_set_clear(hctp_message_t);
-
-bool hctp_control_get_stateMotors(hctp_message_t);
-
-bool hctp_control_get_leftTurn(hctp_message_t);
-
-bool hctp_control_get_rightTurn(hctp_message_t);
+hctp_BUTTON_STATE hctp_control_get_rightTurn(hctp_message_t);
 
 #endif

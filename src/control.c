@@ -1,43 +1,29 @@
 #include "hctp/control.h"
 
-hctp_RESULT hctp_control_set_leftTurn(hctp_message_t message, bool value) {
-    HCTP_NULL_CHECK(message);
+hctp_RESULT_t hctp_control_set_leftTurn(hctp_message_t message, hctp_BUTTON_STATE value) {
     HCTP_CHECK_MESSAGE(message);
 
     HCTP_CLR_BIT(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
 
-    if (value) {
-        HCTP_SET_BIT(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
-    }
+    if (value) HCTP_SET_BIT(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
 
     return hctp_OK;
 }
 
-hctp_RESULT hctp_control_set_rightTurn(hctp_message_t message, bool value) {
-    HCTP_NULL_CHECK(message);
+hctp_RESULT_t hctp_control_set_rightTurn(hctp_message_t message, hctp_BUTTON_STATE value) {
     HCTP_CHECK_MESSAGE(message);
 
     HCTP_CLR_BIT(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
 
-    if (value) {
-        HCTP_SET_BIT(message[HCTP_CONTROL_BYTE], HCTP_RIGHT_TURN_BIT);
-    }
+    if (value) HCTP_SET_BIT(message[HCTP_CONTROL_BYTE], HCTP_RIGHT_TURN_BIT);
 
     return hctp_OK;
 }
 
-hctp_RESULT hctp_control_set_clear(hctp_message_t message) {
-    HCTP_CHECK_MESSAGE(message);
-
-    message[HCTP_CONTROL_BYTE] = 0;
-
-    return hctp_OK;
-}
-
-bool hctp_control_get_leftTurn(hctp_message_t message) {
+hctp_BUTTON_STATE hctp_control_get_leftTurn(const hctp_message_t message) {
     return HCTP_IS_BIT_ACTIVE(message[HCTP_CONTROL_BYTE], HCTP_LEFT_TURN_BIT);
 }
 
-bool hctp_control_get_rightTurn(hctp_message_t message) {
+hctp_BUTTON_STATE hctp_control_get_rightTurn(const hctp_message_t message) {
     return HCTP_IS_BIT_ACTIVE(message[HCTP_CONTROL_BYTE], HCTP_RIGHT_TURN_BIT);
 }

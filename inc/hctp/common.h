@@ -11,6 +11,6 @@ typedef enum {
     hctp_INVALID = -2,
     hctp_ERROR = -3,
     hctp_FATAL = -4
-} hctp_RESULT;
+} hctp_RESULT_t;
 
 #endif
