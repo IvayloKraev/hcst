@@ -1,9 +1,9 @@
-#ifndef HCTP_COMMON_H
-#define HCTP_COMMON_H
+#ifndef hctp_COMMON_H
+#define hctp_COMMON_H
 
 #include <stddef.h>
 
-#define HCTP_CHECK_MESSAGE(ptrToCheck) if((ptrToCheck)==NULL) {return hctp_INVALID;}
+#define hctp_CHECK_MESSAGE(ptrToCheck) if((ptrToCheck)==NULL) {return hctp_INVALID;}
 
 typedef enum {
     hctp_OK = 0,
