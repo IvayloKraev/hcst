@@ -8,16 +8,15 @@ set(HCTP_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 
 set(
         HEADERS
-        ${HCTP_INCLUDE_DIR}/hctp/messageModel.h
+        ${HCTP_INCLUDE_DIR}/hctp/common.h
+        ${HCTP_INCLUDE_DIR}/hctp/types.h
+        ${HCTP_INCLUDE_DIR}/hctp/message.h
         ${HCTP_INCLUDE_DIR}/hctp/control.h
-        ${HCTP_INCLUDE_DIR}/hctp/speed.h
 )
 
 set(
         SOURCES
         ${HCTP_SOURCE_DIR}/control.c
-        ${HCTP_SOURCE_DIR}/speed.c
-
 )
 
 include_directories(${HCTP_INCLUDE_DIR})
