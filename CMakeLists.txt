@@ -1,27 +1,26 @@
 cmake_minimum_required(VERSION 3.29)
-project(hctp LANGUAGES C)
+project(hcst LANGUAGES C)
 
 set(CMAKE_C_STANDARD 11)
 
-set(HCTP_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/inc)
-set(HCTP_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
+set(hcst_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR}/inc)
+set(hcst_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 
 set(
         HEADERS
-        ${HCTP_INCLUDE_DIR}/hctp/types.h
-        ${HCTP_INCLUDE_DIR}/hctp/message.h
-        ${HCTP_INCLUDE_DIR}/hctp/state.h
+        ${hcst_INCLUDE_DIR}/hcst/types.h
+        ${hcst_INCLUDE_DIR}/hcst/message.h
+        ${hcst_INCLUDE_DIR}/hcst/state.h
 )
 
 set(
         SOURCES
-        ${HCTP_SOURCE_DIR}/state.c
+        ${hcst_SOURCE_DIR}/state.c
 )
 
-include_directories(${HCTP_INCLUDE_DIR})
-include_directories(${HCTP_SOURCE_DIR})
+include_directories(${hcst_INCLUDE_DIR})
+include_directories(${hcst_SOURCE_DIR})
 
-add_library(hctp STATIC ${HEADERS} ${SOURCES})
+add_library(hcst STATIC ${HEADERS} ${SOURCES})
 
-
-target_include_directories(hctp PUBLIC ${HCTP_INCLUDE_DIR})
+target_include_directories(hcst PUBLIC ${hcst_INCLUDE_DIR})

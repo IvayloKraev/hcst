@@ -1,85 +1,83 @@
-#include "hctp/state.h"
+#include "hcst/state.h"
 
-hctp_result_t hctp_flm_powered_set(hctp_message_t message, hctp_state_t state) {
-    hctp_MESSAGE_CHECK(message);
-    hctp_BIT_CLEAR(message[hctp_MOTOR_POWERED_BYTE], hctp_FLM_BIT);
-    if (state) hctp_BIT_SET(message[hctp_MOTOR_POWERED_BYTE], hctp_FLM_BIT);
-    return hctp_OK;
+hcst_result_t hcst_flm_powered_set(hcst_message_t message, hcst_state_t state) {
+    hcst_MESSAGE_CHECK(message);
+    hcst_BIT_CLEAR(message[hcst_MOTOR_POWERED_BYTE], hcst_FLM_BIT);
+    if (state) hcst_BIT_SET(message[hcst_MOTOR_POWERED_BYTE], hcst_FLM_BIT);
+    return hcst_OK;
 }
-hctp_result_t hctp_frm_powered_set(hctp_message_t message, hctp_state_t state) {
-    hctp_MESSAGE_CHECK(message);
-    hctp_BIT_CLEAR(message[hctp_MOTOR_POWERED_BYTE], hctp_FRM_BIT);
-    if (state) hctp_BIT_SET(message[hctp_MOTOR_POWERED_BYTE], hctp_FRM_BIT);
-    return hctp_OK;
+hcst_result_t hcst_frm_powered_set(hcst_message_t message, hcst_state_t state) {
+    hcst_MESSAGE_CHECK(message);
+    hcst_BIT_CLEAR(message[hcst_MOTOR_POWERED_BYTE], hcst_FRM_BIT);
+    if (state) hcst_BIT_SET(message[hcst_MOTOR_POWERED_BYTE], hcst_FRM_BIT);
+    return hcst_OK;
 }
-hctp_result_t hctp_rlm_powered_set(hctp_message_t message, hctp_state_t state) {
-    hctp_MESSAGE_CHECK(message);
-    hctp_BIT_CLEAR(message[hctp_MOTOR_POWERED_BYTE], hctp_RLM_BIT);
-    if (state) hctp_BIT_SET(message[hctp_MOTOR_POWERED_BYTE], hctp_RLM_BIT);
-    return hctp_OK;
+hcst_result_t hcst_rlm_powered_set(hcst_message_t message, hcst_state_t state) {
+    hcst_MESSAGE_CHECK(message);
+    hcst_BIT_CLEAR(message[hcst_MOTOR_POWERED_BYTE], hcst_RLM_BIT);
+    if (state) hcst_BIT_SET(message[hcst_MOTOR_POWERED_BYTE], hcst_RLM_BIT);
+    return hcst_OK;
 }
-hctp_result_t hctp_rrm_powered_set(hctp_message_t message, hctp_state_t state) {
-    hctp_MESSAGE_CHECK(message);
-    hctp_BIT_CLEAR(message[hctp_MOTOR_POWERED_BYTE], hctp_RRM_BIT);
-    if (state) hctp_BIT_SET(message[hctp_MOTOR_POWERED_BYTE], hctp_RRM_BIT);
-    return hctp_OK;
+hcst_result_t hcst_rrm_powered_set(hcst_message_t message, hcst_state_t state) {
+    hcst_MESSAGE_CHECK(message);
+    hcst_BIT_CLEAR(message[hcst_MOTOR_POWERED_BYTE], hcst_RRM_BIT);
+    if (state) hcst_BIT_SET(message[hcst_MOTOR_POWERED_BYTE], hcst_RRM_BIT);
+    return hcst_OK;
 }
-hctp_result_t hctp_flm_direction_set(hctp_message_t message, hctp_state_t state) {
-    hctp_MESSAGE_CHECK(message);
-    hctp_BIT_CLEAR(message[hctp_MOTOR_DIRECTION_BYTE], hctp_FLM_BIT);
-    if (state) hctp_BIT_SET(message[hctp_MOTOR_DIRECTION_BYTE], hctp_FLM_BIT);
-    return hctp_OK;
+hcst_result_t hcst_flm_direction_set(hcst_message_t message, hcst_state_t state) {
+    hcst_MESSAGE_CHECK(message);
+    hcst_BIT_CLEAR(message[hcst_MOTOR_DIRECTION_BYTE], hcst_FLM_BIT);
+    if (state) hcst_BIT_SET(message[hcst_MOTOR_DIRECTION_BYTE], hcst_FLM_BIT);
+    return hcst_OK;
 }
-hctp_result_t hctp_frm_direction_set(hctp_message_t message, hctp_state_t state) {
-    hctp_MESSAGE_CHECK(message);
-    hctp_BIT_CLEAR(message[hctp_MOTOR_DIRECTION_BYTE], hctp_FRM_BIT);
-    if (state) hctp_BIT_SET(message[hctp_MOTOR_DIRECTION_BYTE], hctp_FRM_BIT);
-    return hctp_OK;
+hcst_result_t hcst_frm_direction_set(hcst_message_t message, hcst_state_t state) {
+    hcst_MESSAGE_CHECK(message);
+    hcst_BIT_CLEAR(message[hcst_MOTOR_DIRECTION_BYTE], hcst_FRM_BIT);
+    if (state) hcst_BIT_SET(message[hcst_MOTOR_DIRECTION_BYTE], hcst_FRM_BIT);
+    return hcst_OK;
 }
-hctp_result_t hctp_rlm_direction_set(hctp_message_t message, hctp_state_t state) {
-    hctp_MESSAGE_CHECK(message);
-    hctp_BIT_CLEAR(message[hctp_MOTOR_DIRECTION_BYTE], hctp_RLM_BIT);
-    if (state) hctp_BIT_SET(message[hctp_MOTOR_DIRECTION_BYTE], hctp_RLM_BIT);
-    return hctp_OK;
+hcst_result_t hcst_rlm_direction_set(hcst_message_t message, hcst_state_t state) {
+    hcst_MESSAGE_CHECK(message);
+    hcst_BIT_CLEAR(message[hcst_MOTOR_DIRECTION_BYTE], hcst_RLM_BIT);
+    if (state) hcst_BIT_SET(message[hcst_MOTOR_DIRECTION_BYTE], hcst_RLM_BIT);
+    return hcst_OK;
 }
-hctp_result_t hctp_rrm_direction_set(hctp_message_t message, hctp_state_t state) {
-    hctp_MESSAGE_CHECK(message);
-    hctp_BIT_CLEAR(message[hctp_MOTOR_DIRECTION_BYTE], hctp_RRM_BIT);
-    if (state) hctp_BIT_SET(message[hctp_MOTOR_DIRECTION_BYTE], hctp_RRM_BIT);
-    return hctp_OK;
+hcst_result_t hcst_rrm_direction_set(hcst_message_t message, hcst_state_t state) {
+    hcst_MESSAGE_CHECK(message);
+    hcst_BIT_CLEAR(message[hcst_MOTOR_DIRECTION_BYTE], hcst_RRM_BIT);
+    if (state) hcst_BIT_SET(message[hcst_MOTOR_DIRECTION_BYTE], hcst_RRM_BIT);
+    return hcst_OK;
 }
-hctp_result_t hctp_speed_set(hctp_message_t message, hctp_speed_t speed) {
-    hctp_MESSAGE_CHECK(message);
-
-    message[hctp_SPEED_BYTE] = speed;
-
-    return hctp_OK;
+hcst_result_t hcst_speed_set(hcst_message_t message, hcst_speed_t speed) {
+    hcst_MESSAGE_CHECK(message);
+    message[hcst_SPEED_BYTE] = speed;
+    return hcst_OK;
 }
 
-hctp_state_t hctp_flm_powered_get(hctp_message_t message) {
-    return hctp_BIT_IS_ACTIVE(message[hctp_MOTOR_POWERED_BYTE], hctp_FLM_BIT);
+hcst_state_t hcst_flm_powered_get(hcst_message_t message) {
+    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_POWERED_BYTE], hcst_FLM_BIT);
 }
-hctp_state_t hctp_frm_powered_get(hctp_message_t message) {
-    return hctp_BIT_IS_ACTIVE(message[hctp_MOTOR_POWERED_BYTE], hctp_FRM_BIT);
+hcst_state_t hcst_frm_powered_get(hcst_message_t message) {
+    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_POWERED_BYTE], hcst_FRM_BIT);
 }
-hctp_state_t hctp_rlm_powered_get(hctp_message_t message) {
-    return hctp_BIT_IS_ACTIVE(message[hctp_MOTOR_POWERED_BYTE], hctp_RLM_BIT);
+hcst_state_t hcst_rlm_powered_get(hcst_message_t message) {
+    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_POWERED_BYTE], hcst_RLM_BIT);
 }
-hctp_state_t hctp_rrm_powered_get(hctp_message_t message) {
-    return hctp_BIT_IS_ACTIVE(message[hctp_MOTOR_POWERED_BYTE], hctp_RRM_BIT);
+hcst_state_t hcst_rrm_powered_get(hcst_message_t message) {
+    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_POWERED_BYTE], hcst_RRM_BIT);
 }
-hctp_state_t hctp_flm_direction_get(hctp_message_t message) {
-    return hctp_BIT_IS_ACTIVE(message[hctp_MOTOR_DIRECTION_BYTE], hctp_FLM_BIT);
+hcst_state_t hcst_flm_direction_get(hcst_message_t message) {
+    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_DIRECTION_BYTE], hcst_FLM_BIT);
 }
-hctp_state_t hctp_frm_direction_get(hctp_message_t message) {
-    return hctp_BIT_IS_ACTIVE(message[hctp_MOTOR_DIRECTION_BYTE], hctp_FRM_BIT);
+hcst_state_t hcst_frm_direction_get(hcst_message_t message) {
+    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_DIRECTION_BYTE], hcst_FRM_BIT);
 }
-hctp_state_t hctp_rlm_direction_get(hctp_message_t message) {
-    return hctp_BIT_IS_ACTIVE(message[hctp_MOTOR_DIRECTION_BYTE], hctp_RLM_BIT);
+hcst_state_t hcst_rlm_direction_get(hcst_message_t message) {
+    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_DIRECTION_BYTE], hcst_RLM_BIT);
 }
-hctp_state_t hctp_rrm_direction_get(hctp_message_t message) {
-    return hctp_BIT_IS_ACTIVE(message[hctp_MOTOR_DIRECTION_BYTE], hctp_RRM_BIT);
+hcst_state_t hcst_rrm_direction_get(hcst_message_t message) {
+    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_DIRECTION_BYTE], hcst_RRM_BIT);
 }
-hctp_speed_t hctp_speed_get(hctp_message_t message){
-    return message[hctp_SPEED_BYTE];
+hcst_speed_t hcst_speed_get(hcst_message_t message){
+    return message[hcst_SPEED_BYTE];
 }
