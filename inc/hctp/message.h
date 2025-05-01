@@ -2,21 +2,30 @@
 #define hctp_MESSAGE_H
 
 #include "stdint.h"
+#include "stdlib.h"
 
-#define hctp_CONTROL_BYTE       0
-#define hctp_SPEED_BYTE         1
-#define hctp_MESSAGE_SIZE_BYTES 2
+#define hctp_BIT_SET(byte, bit) (byte) |= (1U << (bit))
+#define hctp_BIT_CLEAR(byte, bit) (byte) &= ~(1U << (bit))
+#define hctp_BIT_IS_ACTIVE(byte, bit) (((byte) & (1 << (bit))) != 0)
 
-#define hctp_SET_BIT(byte, bit) (byte) |= (1U << (bit))
-#define hctp_CLR_BIT(byte, bit) (byte) &= ~(1U << (bit))
+enum {
+    hctp_MOTOR_POWERED_BYTE = 0,
+    hctp_MOTOR_DIRECTION_BYTE,
+    hctp_SPEED_BYTE,
+    hctp_MESSAGE_SIZE_BYTES,
+};
 
-#define hctp_IS_BIT_ACTIVE(byte, bit) (((byte) & (1 << (bit))) != 0)
-
-#define hctp_LEFT_TURN_BIT  1
-#define hctp_RIGHT_TURN_BIT 0
+enum {
+    hctp_FLM_BIT = 0,
+    hctp_FRM_BIT,
+    hctp_RLM_BIT,
+    hctp_RRM_BIT,
+};
 
 typedef uint8_t *hctp_message_t;
 
-#define hctp_MESSAGE_INIT(message) message=(hctp_message_t)malloc(sizeof(hctp_message_t) * HCTP_MESSAGE_SIZE_BYTES);
+#define hctp_MESSAGE_INIT(message) message=(hctp_message_t)calloc(hctp_MESSAGE_SIZE_BYTES, sizeof(hctp_message_t))
+#define hctp_MESSAGE_CHECK(message) if((message)==NULL) {return hctp_INVALID;}
+
 
 #endif
