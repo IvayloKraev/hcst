@@ -8,19 +8,19 @@
 #define hcst_BIT_CLEAR(byte, bit) (byte) &= ~(1U << (bit))
 #define hcst_BIT_IS_ACTIVE(byte, bit) (((byte) & (1 << (bit))) != 0)
 
-enum {
+typedef enum {
     hcst_MOTOR_POWERED_BYTE = 0,
     hcst_MOTOR_DIRECTION_BYTE,
     hcst_SPEED_BYTE,
     hcst_MESSAGE_SIZE_BYTES,
-};
+} hcst_message_byte_t;
 
-enum {
+typedef enum {
     hcst_FLM_BIT = 0,
     hcst_FRM_BIT,
     hcst_RLM_BIT,
     hcst_RRM_BIT,
-};
+} hsct_motor_bit_t;
 
 typedef uint8_t *hcst_message_t;
 
