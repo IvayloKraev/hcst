@@ -1,33 +1,27 @@
 #include "hcst/state.h"
 
-hcst_result_t hcst_powerMotor_set(hcst_message_t message, hsct_motor_bit_t motor, hcst_state_t state) {
+static hcst_result_t hcst_motor_set(hcst_message_t message, hsct_motor_bit_t motor, hcst_motor_state_handler_t state) {
     hcst_MESSAGE_CHECK(message);
+    if (motor >= hcst_NUM_OF_MOTORS) return hcst_INVALID;
+
     hcst_BIT_CLEAR(message[hcst_MOTOR_POWERED_BYTE], motor);
-    if (state) hcst_BIT_SET(message[hcst_MOTOR_POWERED_BYTE], motor);
-    return hcst_OK;
-}
+    hcst_BIT_SET(message[hcst_MOTOR_POWERED_BYTE], state->power, motor);
 
-hcst_result_t hcst_directionMotor_set(hcst_message_t message, hsct_motor_bit_t motor, hcst_state_t state) {
-    hcst_MESSAGE_CHECK(message);
     hcst_BIT_CLEAR(message[hcst_MOTOR_DIRECTION_BYTE], motor);
-    if (state) hcst_BIT_SET(message[hcst_MOTOR_DIRECTION_BYTE], motor);
+    hcst_BIT_SET(message[hcst_MOTOR_DIRECTION_BYTE], state->direction, motor);
+
+    hcst_BYTE_CLEAR(message[hcst_SPEED_BYTE + motor]);
+    hcst_BYTE_SET(message[hcst_SPEED_BYTE + motor], state->speed);
+
     return hcst_OK;
 }
 
-hcst_result_t hcst_speed_set(hcst_message_t message, hcst_speed_t speed) {
+static hcst_result_t hcst_state_get(hcst_message_t message, hsct_motor_bit_t motor, hcst_motor_state_handler_t state) {
     hcst_MESSAGE_CHECK(message);
-    message[hcst_SPEED_BYTE] = speed;
+
+    state->power = hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_POWERED_BYTE], motor);
+    state->direction = hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_DIRECTION_BYTE], motor);
+    state->speed = message[hcst_SPEED_BYTE + motor];
+
     return hcst_OK;
-}
-
-hcst_state_t hcst_powerMotor_get(hcst_message_t message, hsct_motor_bit_t motor) {
-    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_POWERED_BYTE], motor);
-}
-
-hcst_state_t hcst_directionMotor_get(hcst_message_t message, hsct_motor_bit_t motor) {
-    return hcst_BIT_IS_ACTIVE(message[hcst_MOTOR_DIRECTION_BYTE], motor);
-}
-
-hcst_speed_t hcst_speed_get(hcst_message_t message){
-    return message[hcst_SPEED_BYTE];
 }

@@ -4,12 +4,19 @@
 #include "hcst/message.h"
 #include "hcst/types.h"
 
-hcst_result_t hcst_powerMotor_set(hcst_message_t, hsct_motor_bit_t, hcst_state_t);
-hcst_result_t hcst_directionMotor_set(hcst_message_t, hsct_motor_bit_t, hcst_state_t);
-hcst_result_t hcst_speed_set(hcst_message_t, hcst_speed_t);
+typedef struct {
+    hcst_state_t power;
+    hcst_state_t direction;
+    hcst_speed_t speed;
+} hcst_motor_state_t;
 
-hcst_state_t hcst_powerMotor_get(hcst_message_t, hsct_motor_bit_t);
-hcst_state_t hcst_directionMotor_get(hcst_message_t, hsct_motor_bit_t);
-hcst_speed_t hcst_speed_get(hcst_message_t);
+typedef hcst_motor_state_t *hcst_motor_state_handler_t;
+
+#define hcst_MOTOR_STATE_INIT(state) state=(hcst_motor_state_handler_t)malloc(sizeof(hcst_motor_state_t))
+#define hcst_MOTOR_STATE_DEINIT(state) free(state)
+
+static hcst_result_t hcst_motor_set(hcst_message_t, hsct_motor_bit_t, hcst_motor_state_handler_t);
+
+static hcst_result_t hcst_state_get(hcst_message_t, hsct_motor_bit_t, hcst_motor_state_handler_t);
 
 #endif
