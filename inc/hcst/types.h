@@ -2,9 +2,12 @@
 #define hcst_TYPES_H
 
 typedef enum {
-    hcst_OK = 1,
-    hcst_INVALID = -1,
-} hcst_result_t;
+    hcst_OK = 0,
+    hcst_WARN,
+    hcst_INVALID,
+    hcst_ERROR,
+    hcst_FATAL,
+} hcst_ERROR_t;
 
 typedef enum {
     hcst_STATE_IDLE = 0,
