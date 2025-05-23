@@ -2,7 +2,14 @@
 #define hcst_STATE_H
 
 #include "hcst/message.h"
-#include "hcst/types.h"
+#include "hcst/error.h"
+
+typedef enum {
+    hcst_PINSTATE_IDLE = 0,
+    hcst_PINSTATE_EXITED = 1,
+} hcst_pinState_t;
+
+typedef uint8_t hcst_speed_t;
 
 typedef struct {
     hcst_state_t power;
