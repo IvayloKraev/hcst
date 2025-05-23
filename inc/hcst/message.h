@@ -17,14 +17,14 @@ typedef enum {
     hcst_RLM,
     hcst_RRM,
     hcst_NUM_OF_MOTORS
-} hsct_motor_bit_t;
+} hsct_motor_enum;
 
-typedef enum {
+enum {
     hcst_MOTOR_POWERED_BYTE = 0,
     hcst_MOTOR_DIRECTION_BYTE,
     hcst_SPEED_BYTE,
     hcst_MESSAGE_SIZE_BYTES = hcst_SPEED_BYTE + hcst_NUM_OF_MOTORS
-} hcst_message_byte_t;
+};
 
 typedef uint8_t *hcst_message_t;
 

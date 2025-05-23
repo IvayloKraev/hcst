@@ -12,18 +12,33 @@ typedef enum {
 typedef uint8_t hcst_speed_t;
 
 typedef struct {
-    hcst_state_t power;
-    hcst_state_t direction;
+    hcst_pinState_t power;
+    hcst_pinState_t direction;
     hcst_speed_t speed;
-} hcst_motor_state_t;
+} hcst_motorState_t;
 
-typedef hcst_motor_state_t *hcst_motor_state_handler_t;
-
-#define hcst_MOTOR_STATE_INIT(state) state=(hcst_motor_state_handler_t)malloc(sizeof(hcst_motor_state_t))
+#define hcst_MOTOR_STATE_INIT(state) (state) = (hcst_motorState_t*) malloc(sizeof(hcst_motorState_t))
+#define hcst_MOTOR_STATE_CHECK(state) if((message)==NULL) {return hcst_INVALID;}
 #define hcst_MOTOR_STATE_DEINIT(state) free(state)
 
-static hcst_ERROR_t hcst_state_set(hcst_message_t, hsct_motor_bit_t, hcst_motor_state_handler_t);
+/*! \brief Writes the motor state in the message
+ *
+ *  \param message The message to write the motor state
+ *  \param motor For which motor is the given state
+ *  \param state The state of the motor (powered, direction, speed etc.)
+ *
+ *  \return The error code - 0 if successful, 1 and above for error \ref hcst_error_t
+ */
+static hcst_error_t hcst_message_set(hcst_message_t message, hsct_motor_enum motor, hcst_motorState_t* state);
 
-static hcst_ERROR_t hcst_state_get(hcst_message_t, hsct_motor_bit_t, hcst_motor_state_handler_t);
+/*! \brief Reads the motor state in the message
+ *
+ *  \param message The message to read the motor state
+ *  \param motor For which motor is the wanted state
+ *  \param state The state of the motor, which will be populated after the operation
+ *
+ *  \return The error code - 0 if successful, 1 and above for error \ref hcst_error_t
+ */
+static hcst_error_t hcst_message_get(hcst_message_t message, hsct_motor_enum motor, hcst_motorState_t* state);
 
 #endif
