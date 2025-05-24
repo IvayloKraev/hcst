@@ -2,11 +2,9 @@
 #define hcst_ERROR_H
 
 typedef enum {
-    hcst_OK = 0,
-    hcst_WARN,
-    hcst_INVALID,
-    hcst_ERROR,
-    hcst_FATAL,
+    hcst_error_none = 0,
+    hcst_error_nullPtr,
+    hcst_error_invalidMotor,
 } hcst_error_t;
 
 #endif

@@ -8,7 +8,7 @@ set(hcst_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/src)
 
 set(
         HEADERS
-        ${hcst_INCLUDE_DIR}/hcst/types.h
+        ${hcst_INCLUDE_DIR}/hcst/error.h
         ${hcst_INCLUDE_DIR}/hcst/message.h
         ${hcst_INCLUDE_DIR}/hcst/state.h
 )
