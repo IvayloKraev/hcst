@@ -37,6 +37,7 @@ inline hcst_error_t hcst_motorState_init(hcst_message_t *motorState) {
  *  \return The error code - 0 if successful, 1 and above for error \ref hcst_error_t
  */
 inline hcst_error_t hcst_motorState_deinit(hcst_message_t *motorState) {
+    if (motorState == NULL) return hcst_error_nullPtr;
     free(*motorState);
     *motorState = NULL;
     return hcst_error_none;
