@@ -7,13 +7,13 @@
 typedef enum {
     hcst_PINSTATE_IDLE = 0,
     hcst_PINSTATE_EXITED = 1,
-} hcst_pinState_t;
+} hcst_pinState_enum;
 
 typedef uint8_t hcst_speed_t;
 
 typedef struct {
-    hcst_pinState_t power;
-    hcst_pinState_t direction;
+    hcst_pinState_enum power;
+    hcst_pinState_enum direction;
     hcst_speed_t speed;
 } hcst_motorState_t;
 
@@ -36,7 +36,7 @@ inline hcst_error_t hcst_motorState_init(hcst_message_t *motorState) {
  *
  *  \return The error code - 0 if successful, 1 and above for error \ref hcst_error_t
  */
-inline hcst_error_t hcst_motorState_deinit(hcst_message_t *motorState) {
+inline hcst_error_t hcst_motorState_deinit(hcst_message_t **motorState) {
     if (motorState == NULL) return hcst_error_nullPtr;
     free(*motorState);
     *motorState = NULL;
