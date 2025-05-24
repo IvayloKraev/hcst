@@ -4,6 +4,8 @@
 #include "stdint.h"
 #include "stdlib.h"
 
+#include "error.h"
+
 #define hcst_BIT_SET(byte, state, bit) (byte) |= (state << (bit))
 #define hcst_BIT_CLEAR(byte, bit) (byte) &= ~(1U << (bit))
 #define hcst_BIT_IS_ACTIVE(byte, bit) (((byte) & (1 << (bit))) != 0)
@@ -28,9 +30,31 @@ enum {
 
 typedef uint8_t *hcst_message_t;
 
-#define hcst_MESSAGE_INIT(message) message=(hcst_message_t)calloc(hcst_MESSAGE_SIZE_BYTES, sizeof(hcst_message_t))
-#define hcst_MESSAGE_CHECK(message) if((message)==NULL) {return hcst_INVALID;}
-#define hcst_MESSAGE_DEINIT(message) free(message)
+
+/*! \brief Allocates the memory for a message
+ *
+ *  \param message Pointer to the message
+ *
+ *  \return The error code - 0 if successful, 1 and above for error \ref hcst_error_t
+ */
+inline hcst_error_t hcst_message_init(hcst_message_t* message) {
+    *message = (hcst_message_t) calloc(hcst_MESSAGE_SIZE_BYTES, sizeof(hcst_message_t));
+    if (!*message) return hcst_error_outOfMemory;
+    return hcst_error_none;
+}
+
+
+/*! \brief Removes the allocated the memory for a message
+ *
+ *  \param message Pointer to the message
+ *
+ *  \return The error code - 0 if successful, 1 and above for error \ref hcst_error_t
+ */
+inline hcst_error_t hcst_message_deinit(hcst_message_t* message) {
+    free(*message);
+    *message = NULL;
+    return hcst_error_none;
+}
 
 
 #endif
