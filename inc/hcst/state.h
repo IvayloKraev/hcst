@@ -23,9 +23,9 @@ typedef struct {
  *
  *  \return The error code - 0 if successful, 1 and above for error \ref hcst_error_t
  */
-inline hcst_error_t hcst_motorState_init(hcst_message_t *motorState) {
-    *motorState = (hcst_message_t) calloc(hcst_MESSAGE_SIZE_BYTES, sizeof(hcst_message_t));
+inline hcst_error_t hcst_motorState_init(hcst_motorState_t **motorState) {
     if (*motorState != NULL) return hcst_error_unreleasedMemory;
+    *motorState = (hcst_motorState_t*) malloc(sizeof(hcst_motorState_t));
     if (!*motorState) return hcst_error_outOfMemory;
     return hcst_error_none;
 }
