@@ -6,6 +6,7 @@ typedef enum {
     hcst_error_nullPtr,
     hcst_error_invalidMotor,
     hcst_error_outOfMemory,
+    hcst_error_unreleasedMemory,
 } hcst_error_t;
 
 #endif

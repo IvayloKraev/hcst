@@ -25,6 +25,7 @@ typedef struct {
  */
 inline hcst_error_t hcst_motorState_init(hcst_message_t *motorState) {
     *motorState = (hcst_message_t) calloc(hcst_MESSAGE_SIZE_BYTES, sizeof(hcst_message_t));
+    if (*motorState != NULL) return hcst_error_unreleasedMemory;
     if (!*motorState) return hcst_error_outOfMemory;
     return hcst_error_none;
 }
