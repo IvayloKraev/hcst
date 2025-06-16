@@ -11,8 +11,7 @@ static hcst_error_t hcst_message_set(hcst_message_t message, hsct_motor_enum mot
     hcst_BIT_CLEAR(message[hcst_MOTOR_DIRECTION_BYTE], motor);
     hcst_BIT_SET(message[hcst_MOTOR_DIRECTION_BYTE], state->direction, motor);
 
-    hcst_BYTE_CLEAR(message[hcst_SPEED_BYTE + motor]);
-    hcst_BYTE_SET(message[hcst_SPEED_BYTE + motor], state->speed);
+    message[hcst_SPEED_BYTE + motor] = state->speed;
 
     return hcst_error_none;
 }
