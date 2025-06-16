@@ -10,9 +10,6 @@
 #define hcst_BIT_CLEAR(byte, bit) (byte) &= ~(1U << (bit))
 #define hcst_BIT_IS_ACTIVE(byte, bit) (((byte) & (1 << (bit))) != 0)
 
-#define hcst_BYTE_SET(byte, value) (byte) = (value)
-#define hcst_BYTE_CLEAR(byte) (byte) = (0)
-
 typedef enum {
     hcst_FLM = 0,
     hcst_FRM,
