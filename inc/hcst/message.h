@@ -42,18 +42,4 @@ inline hcst_error_t hcst_message_init(hcst_message_t* message) {
 }
 
 
-/*! \brief Removes the allocated the memory for a message
- *
- *  \param message Pointer to the message
- *
- *  \return The error code - 0 if successful, 1 and above for error \ref hcst_error_t
- */
-inline hcst_error_t hcst_message_deinit(hcst_message_t* message) {
-    if (message == NULL) return hcst_error_nullPtr;
-    free(*message);
-    *message = NULL;
-    return hcst_error_none;
-}
-
-
 #endif
